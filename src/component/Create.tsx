@@ -1,9 +1,9 @@
 import { useState} from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Create.style.scss';
 
 interface formData {
-  id?: number,
+  id: number,
   name?: string,
   username?: string,
   email?: string
@@ -21,7 +21,7 @@ export const Create = ({ allUsers, setAllUsers }: CreateProps) => {
   })
   localStorage.getItem('alluser')
   const navigate = useNavigate();
-  console.log(allUsers, setAllUsers,'24')
+  // console.log(allUsers, setAllUsers,'24')
   // const location = useLocation();
   // const passed = location.state;
 
@@ -61,8 +61,8 @@ export const Create = ({ allUsers, setAllUsers }: CreateProps) => {
           <input type="text" value={formData.email} onChange={(e)=>{onInputChanged('email', e.target.value)}}/>
         </div>
         <div>
-          <Link to="/"><input type="button" value="Back" /></Link>
           <input type="submit" value="Add User" onClick={handleAddUser} />
+          <Link to="/"><input type="button" value="Back" /></Link>
         </div>
       </form>
     </div>

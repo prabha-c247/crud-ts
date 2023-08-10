@@ -11,13 +11,17 @@ const Users = () => {
     const [allUsers, setAllUsers] = useState<Array<User>>([]);
 
     useEffect(() => {
-        // const storedData = JSON.parse(localStorage.getItem("alluser"))
-        // const storedData = localStorage.getItem("alluser");
 
-        // if (storedData.length !== 0) {
-        //     setAllUsers(storedData);
+        // const storedData = isJsonString(localStorage.getItem("alluser")){
+        //     setAllUsers(JSON.parse(storedData))
         // }
-        // else (
+
+        const storedData = localStorage.getItem("alluser");
+        console.log(storedData?.length)
+        if ((storedData != null)) {
+            setAllUsers(JSON.parse(storedData));
+        }
+        else (
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then((res) => {
 
@@ -27,7 +31,7 @@ const Users = () => {
             .catch((err) => {
                 console.log(err)
             })
-        // )
+        )
     }, [])
 
     // const allData = [allUsers, setAllUsers]
