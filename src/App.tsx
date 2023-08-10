@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Users/>} />
-        <Route path="/create" element={<Create/>} />
-        <Route path="/update" element={<Update/>} />
+        <Route path="/create" element={<Create allUsers={undefined} setAllUsers={undefined}/>} />
+        <Route path="/update/:id" element={<Update/>} />
       </Routes>
     </BrowserRouter>
   );
